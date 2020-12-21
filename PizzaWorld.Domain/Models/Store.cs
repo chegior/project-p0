@@ -7,9 +7,9 @@ namespace PizzaWorld.Domain.Models
     {
         //
         public List<Order> Orders {get;set;}
-        void CreateOrder()
+        public void CreateOrder()
         {
-            var o = new Order();
+           Orders.Add(new Order());
         }
 
         bool DeleteOrder(Order order)
@@ -23,14 +23,18 @@ namespace PizzaWorld.Domain.Models
             {
                 return false;        
             }
-            finally
+            finally  // only wont work on OS Issue and Hardware doesnt 
             {
                 GC.Collect();
+                
                 //GarbageCollection, cant be invoked
                 // level1 clean quickly
                 // level2 when its needes
                 // level3 barely
-            }   // only wont work on OS Issue and Hardware doesnt 
+            }   
+            
+            
+           
         }
     }
 }
